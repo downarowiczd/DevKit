@@ -1,0 +1,10 @@
+﻿{
+    "profiles": {
+      "Downardo.DevKit (Package)": {
+        "commandName": "MsixPackage"
+      },
+      "Downardo.DevKit (Unpackaged)": {
+        "commandName": "Project"
+      }
+    }
+}
