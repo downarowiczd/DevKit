@@ -4,9 +4,41 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:helper="using:Downardo.DevKit.Helpers"
+    xmlns:model="using:Downardo.DevKit.ViewModels"
     mc:Ignorable="d">
+    <Page.Resources>
+        <helper:EnumToDisplayNameConverter x:Key="EnumToDisplayNameConverter" />
+        <model:EncodingViewModel x:Key="ViewModel" />
+    </Page.Resources>
 
     <Grid x:Uid="EncodingPage_ContentArea">
+        <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+            <ComboBox x:Uid="Encoding_Mode"
+            Width="160"
+            ItemsSource="{x:Bind ViewModel.ViewEncodingModes}" Margin="{StaticResource XSmallTopMargin}"
+            SelectedItem="{x:Bind ViewModel.ViewEncodingMode, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Converter={StaticResource EnumToDisplayNameConverter}}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Grid x:Uid="Encoding_InputOutputGrid" ColumnSpacing="32" RowSpacing="12" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="400" />
+                </Grid.RowDefinitions>
+                <TextBox x:Uid="Encoding_Input" AcceptsReturn="True" TextWrapping="Wrap" 
+                    MaxHeight="300" Width="500"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="0"/>
+                <TextBox x:Uid="Encoding_Output" AcceptsReturn="True" TextWrapping="Wrap" 
+                    MaxHeight="300" Width="500"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="0" Grid.Column="1" IsReadOnly="True"/>
+            </Grid>
+        </StackPanel>
     </Grid>
-    
 </Page>

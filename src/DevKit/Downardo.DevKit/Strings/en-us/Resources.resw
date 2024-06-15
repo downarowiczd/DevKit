@@ -182,4 +182,19 @@
   <data name="Shell_Encoding.Content" xml:space="preserve">
     <value>Encoding/decoding</value>
   </data>
+  <data name="Encoding_FromBaseToText" xml:space="preserve">
+    <value>base64 to text</value>
+  </data>
+  <data name="Encoding_FromTextToBase" xml:space="preserve">
+    <value>text to base64</value>
+  </data>
+  <data name="Encoding_Input.Header" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="Encoding_Mode.Header" xml:space="preserve">
+    <value>Encoding Mode</value>
+  </data>
+  <data name="Encoding_Output.Header" xml:space="preserve">
+    <value>Output</value>
+  </data>
 </root>
